@@ -1,2 +1,15 @@
 This is the main repository for the Enhancer prediction github page
 
+Code for doublePeak 
+It needs a list of files for histone marks (tab separated - peak filename in bed format and sig filename in bedgraph format - ENCODE files basically). Different replicates should be on different lines of the file
+
+> ./doublePeaksPositive.py <inpFile> <output.bed>
+where:
+    inpFile is a file with separate lines for each replicate of H3K27ac experiments. Example is:
+encodePeaksRep1.bed	encodeSigRep1.bedgraph
+encodePeaksRep2.bed	encodeSigRep2.bedgraph
+    output.bed is name of ouput file - bed file with regions of double peaks.
+
+output.bed is then intersected with the narrow peak file from ENCODE for DNase to find the final positive list for training. Code tested on GM12878 files.
+
+TO DO: Add code to do intersectBed within this python script
